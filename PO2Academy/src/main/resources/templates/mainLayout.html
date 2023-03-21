@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+    <!--Social media icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    <link th:href="@{/css/mainLayout.css}" rel="stylesheet"/>
+    <link th:href="@{/images/LogoApp.png}" type="image/icon type" rel="icon">
+</head>
+<body>
+<div class="mainContanier">
+    <div class="header">
+        <div class="headerLogo">
+            <button type="button" class="btn btn-light" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop"
+                    aria-controls="staticBackdrop">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <img th:src="@{/images/LogoApp.png}" alt="Logo" style="width: 5%;"
+                 class="d-inline-block align-text-top">
+        </div>
+        <div class="dropdown">
+            <button type="button" class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <form th:action="@{/logout}" method="post">
+                    <li><input class="dropdown-item" type="submit" value="Logout"></li>
+                </form>
+            </ul>
+        </div>
+    </div>
+    <div class="body">
+        <div class="card cardBody">
+            <div class="card-body">
+                <!-- Content Section -->
+                <section layout:fragment="content">
+                    <p>This is filled by the content template.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="footerContainer">
+                <div class="col">
+                    <div class="footerInfo">
+                        <h5>Integrantes</h5>
+
+                        <p>Juan Martin Vasquez<br>
+                            Ricardo Paez Yepes<br>
+                            Victor Manuel Gomez Zarama<br>
+                            Andrés José Urbano<br>
+                            Felipe Chaves Romero<br>
+                            Jharling Jhoan Rodriguez</p>
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="footerInfo">
+                        <h5>Acerca de</h5>
+                        <p>
+                            Po2Academi es un proyecto elaborado para la materia "Proyecto Informático 1" de la
+                            Universidad Autónoma De Occidente, en Cali Colombia.
+                        </p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="footerInfo">
+                        <h5>Desarrollado por:</h5>
+                        <img th:src="@{/images/Logo_InnovaSoft.png}" alt="Logo" style="width: 75%;"
+                             class="d-inline-block align-text-top">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-4 footerCopyright">
+            © 2023 Copyright:
+            <a class="fw-bold">PO2ACADEMY.COM</a>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<!--OffCanvas-->
+<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop"
+     aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+        <img th:src="@{/images/LogoApp.png}" alt="Logo" style="width: 25%;"
+             class="d-inline-block align-text-top">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            I will not close if you click outside of me.
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

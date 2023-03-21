@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{mainLayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link th:href="@{/css/home.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="bodyContainer">
+        <div class="dashBoard">
+            <div class="card text-bg-dark">
+                <img th:src="@{/images/Baner1.png}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">Hola, [NOMBRE ESTUDIANTE]</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+        <div class="bodyContent">
+            <a href="youtube.com">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/Tutoriales2.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Tutoriales</h5>
+                        <p class="card-text">Aprende con videos, diapositivas y más!</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>
