@@ -17,14 +17,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
     <!--Social media icons-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <link th:href="@{/css/mainLayout.css}" rel="stylesheet"/>
-    <link th:href="@{/images/LogoApp.png}" type="image/icon type" rel="icon">
+    <link th:href="@{/images/favicon.png}" type="image/icon type" rel="icon">
+    <script type="text/javascript" th:src="@{/js/Alerts.js}"></script>
 </head>
 <body>
 <div class="mainContanier">
@@ -34,8 +35,11 @@
                     aria-controls="staticBackdrop">
                 <i class="fa-solid fa-bars"></i>
             </button>
-            <img th:src="@{/images/LogoApp.png}" alt="Logo" style="width: 5%;"
-                 class="d-inline-block align-text-top">
+            <a th:href="@{/home}">
+                <img th:src="@{/images/LogoApp.png}" alt="Logo"
+                     class="d-inline-block align-text-top">
+            </a>
+
         </div>
         <div class="dropdown">
             <button type="button" class="btn btn-light" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,7 +47,12 @@
             </button>
             <ul class="dropdown-menu">
                 <form th:action="@{/logout}" method="post">
-                    <li><input class="dropdown-item" type="submit" value="Logout"></li>
+                    <li>
+                        <button class="dropdown-item" type="submit" value="Logout">
+                            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            <span>Logout</span>
+                        </button>
+                    </li>
                 </form>
             </ul>
         </div>
@@ -96,7 +105,7 @@
         </div>
         <div class="text-center p-4 footerCopyright">
             © 2023 Copyright:
-            <a class="fw-bold">PO2ACADEMY.COM</a>
+            <a class="fw-bold" th:href="@{/home}">PO2ACADEMY.COM</a>
         </div>
     </div>
 </div>
@@ -112,9 +121,25 @@
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-        <div>
-            I will not close if you click outside of me.
-        </div>
+        <button type="button" class="btn btn-light">
+           <div class="offcanvas-body-item">
+                <i class="fa-solid fa-book-open-reader"></i>
+                <span>Tutoriales.</span>
+            </div>
+        </button>
+        <button type="button" class="btn btn-light">
+            <div class="offcanvas-body-item">
+                <i class="fa-solid fa-book"></i>
+                <span>Glosario.</span>
+            </div>
+        </button>
+        <button type="button" class="btn btn-light">
+            <div class="offcanvas-body-item">
+                <i class="fa-solid fa-gamepad"></i>
+                <span>Empezar Desafío.</span>
+            </div>
+        </button>
+
     </div>
 </div>
 

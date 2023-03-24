@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
+import org.springframework.security.web.savedrequest.NullRequestCache;
 
 @Configuration
 @EnableWebSecurity
@@ -17,21 +19,29 @@ public class WebSecurity {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+        HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
+        requestCache.setMatchingRequestParameterName(null);
+        return http
                 .authorizeHttpRequests()
-                .requestMatchers("/static/**","/css/**","/images/**","/js/**")
+                .requestMatchers("/static/**", "/css/**", "/images/**", "/js/**")
                 .permitAll()
-                .anyRequest().authenticated();
-        http
+                .anyRequest()
+                .authenticated()
+                .and()
                 .formLogin()
                 .loginProcessingUrl("/singin")
                 .loginPage("/login")
-                .permitAll()
                 .defaultSuccessUrl("/home")
                 .usernameParameter("username")
-                .passwordParameter("password");
-
-        return http.build();
+                .passwordParameter("password")
+                .permitAll()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/login?logout=true")
+                .permitAll()
+                .and()
+                .requestCache(cache -> cache.requestCache(requestCache))
+                .build();
 
     }
 

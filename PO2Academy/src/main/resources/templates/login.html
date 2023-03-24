@@ -24,7 +24,7 @@
 
 
     <link th:href="@{/css/login.css}" rel="stylesheet"/>
-    <link th:href="@{/images/LogoApp.png}" type="image/icon type" rel="icon">
+    <link th:href="@{/images/favicon.png}" type="image/icon type" rel="icon">
     <script type="text/javascript" th:src="@{/js/Alerts.js}"></script>
 </head>
 <body>
@@ -44,14 +44,17 @@
             <label for="floatingPassword">Contraseña</label>
         </div>
         <!--Boton-->
-        <input class="btn btn-primary" type="submit" value="Login">
+        <button class="btn btn-primary" type="submit" value="Login">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <span >Login</span>
+        </button>
     </form>
 </div>
 <div class="text-center p-3 footerCopyright">
     © 2023 Copyright:
-    <a class="fw-bold">PO2ACADEMY.COM</a>
+    <a class="fw-bold" th:href="@{/home}">PO2ACADEMY.COM</a>
 </div>
 <script th:if="${param.error}" th:inline="javascript">loginError()</script>
-<script th:if="${param.logout}" th:inline="javascript">loginError()</script>
+<script th:if="${param.logout}" th:inline="javascript">logOut()</script>
 </body>
 </html>

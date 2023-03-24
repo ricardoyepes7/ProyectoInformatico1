@@ -14,27 +14,74 @@
             <div class="card text-bg-dark">
                 <img th:src="@{/images/Baner1.png}" class="card-img" alt="...">
                 <div class="card-img-overlay">
-                    <h5 class="card-title">Hola, [NOMBRE ESTUDIANTE]</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                    <div class="InfoCard">
+                        <h1 class="card-title" th:text="${'Hola, '+Data.name}">Hola,</h1>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small>Last updated 3 mins ago</small></p>
+                    </div>
+                    <div class="ProgresCard">
+                        <div class="ProgresItem">
+                            <h6>Encapsulación</h6>
+                            <div class="progress" role="progressbar" aria-label="Example with label"  th:attr="aria-valuenow=${Data.encapsulationScore}"  aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" th:style="${'width: '+Data.encapsulationScore+'%'}" th:text="${Data.encapsulationScore+'%'}" ></div>
+                            </div>
+                        </div>
+                        <div class="ProgresItem">
+                            <h6>Abstracción</h6>
+                            <div class="progress" role="progressbar" aria-label="Example with label" th:attr="aria-valuenow=${Data.abstractionScore}" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" th:style="${'width: '+Data.abstractionScore+'%'}" th:text="${Data.abstractionScore+'%'}" ></div>
+                            </div>
+                        </div>
+                        <div class="ProgresItem">
+                            <h6>Herencia</h6>
+                            <div class="progress" role="progressbar" aria-label="Example with label" th:attr="aria-valuenow=${Data.inheritanceScore}" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" th:style="${'width: '+Data.inheritanceScore+'%'}" th:text="${Data.inheritanceScore+'%'}" ></div>
+                            </div>
+                        </div>
+                        <div class="ProgresItem">
+                            <h6>Polimorfismo</h6>
+                            <div class="progress" role="progressbar" aria-label="Example with label" th:attr="aria-valuenow=${Data.polymorphismScore}" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar" th:style="${'width: '+Data.polymorphismScore+'%'}" th:text="${Data.polymorphismScore+'%'}" ></div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
         <div class="bodyContent">
-            <a href="youtube.com">
+            <a class="itemBody" th:href="@{/tutoriales}">
                 <div class="card" style="width: 18rem;">
-                    <img th:src="@{/images/Tutoriales2.png}" class="card-img-top" alt="...">
+                    <img th:src="@{/images/Tutoriales.png}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Tutoriales</h5>
                         <p class="card-text">Aprende con videos, diapositivas y más!</p>
                     </div>
                 </div>
             </a>
+            <a class="itemBody"  th:href="@{/}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/Glosario.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Glosario</h5>
+                        <p class="card-text">Catálogo ordenado de palabras.</p>
+                    </div>
+                </div>
+            </a>
+            <a class="itemBody"  th:href="@{/}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/Test.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Empezar Desafío</h5>
+                        <p class="card-text">Inicia o continua con las pruebas mas divertidas!</p>
+                    </div>
+                </div>
+            </a>
         </div>
 
     </div>
-
+    <script th:if="${Data.encapsulationScore==100 && Data.abstractionScore==100 && Data.inheritanceScore==100 && Data.polymorphismScore==100}" th:inline="javascript">congratulations()</script>
 </div>
 </body>
 </html>

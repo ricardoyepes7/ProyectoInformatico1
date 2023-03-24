@@ -14,7 +14,9 @@ html{
 body{
   min-height: 100%;
 }
-
+.headerLogo img{
+    width: 100%;
+}
 .mainContanier{
    display: grid;
    height: 100vh;
@@ -38,8 +40,25 @@ body{
 i{
     color:#028090;
 }
-i:hover{
+.header button:hover i{
     color: #E4FDE1;
+}
+.dropdown-item i{
+     color: #114B5F;
+}
+.dropdown-item span{
+     color: #114B5F;
+     font-family: 'Fredoka';
+}
+.dropdown-item:hover i {
+     color: #028090 !important;
+}
+.dropdown-item:hover span{
+     color: #028090;
+}
+.header .btn-light{
+  border-radius: 100%;
+
 }
 .body{
   grid-area: "body";
@@ -87,14 +106,57 @@ background-color: rgba(0, 0, 0, 0.05);
 color: #E4FDE1;
 text-decoration: none;
 }
-.btn-light{
-  border-radius: 100%;
-
+.footerCopyright a:hover{
+color: #028090;
 }
+
 .headerLogo{
 display: flex;
     flex-direction: row;
     align-content: stretch;
     align-items: center;
     justify-content: flex-start;
+    width: 7%;
+
+}
+.offcanvas-body button{
+    width: 100%;
+}
+.offcanvas-body-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    width: 50%;
+    font-size: x-large;
+    margin: 1rem;
+}
+.offcanvas-body-item span{
+   color: #028090 !important;
+   font-family: 'Fredoka';
+}
+.offcanvas-body button:hover i,span{
+   color: #114B5F !important;
+}
+
+@media (max-width: 870px) {
+  .mainContanier{
+     grid-template-rows: 75px auto 680px;
+  }
+  .footerContainer {
+      display: flex;
+      justify-content: center;
+      width: 80%;
+      color: white;
+      flex-direction: column;
+      align-items: center;
+      align-content: center;
+  }
+  .footerContainer .col {
+      width: 70%;
+    }
+    .headerLogo img{
+    width: 100%;
+}
 }

@@ -28,7 +28,7 @@ flex-direction: column-reverse;
     height:100px ;
     position: absolute;
     top: -50px;
-    left: calc(50% - 81px);
+    left: calc(50% - 97px);
 }
 .login-box h1{
 	margin: 0;
@@ -36,7 +36,7 @@ flex-direction: column-reverse;
 	text-align: center;
 	font-size: 22px;
 }
-.login-box input[type="submit"]{
+.login-box .btn-primary{
 	border: none;
 	outline: none;
 	background: #028090;;
@@ -46,6 +46,9 @@ flex-direction: column-reverse;
     font-weight: 300;
     width: 100%;
     margin-top: 3rem;
+}
+.login-box .btn-primary:hover{
+	background: #114B5F;
 }
 
 
@@ -65,4 +68,7 @@ background-color: rgb(0 0 0 / 47%);
 .footerCopyright a{
 color: #028090;
 text-decoration: none;
+}
+.footerCopyright a:hover{
+color: #E4FDE1;
 }
