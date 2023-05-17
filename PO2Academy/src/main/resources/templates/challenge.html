@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{mainLayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Desafíos</title>
+    <link th:href="@{/css/challenge.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="bodyContainer">
+        <div class="bodyHeader">
+            <h1>Desafíos</h1>
+        </div>
+        <div class="bodyContent">
+            <a class="itemBody" th:href="@{/challenge/encapsulation}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/encapsulation.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Encapsulación</h5>
+                    </div>
+                </div>
+            </a>
+            <a class="itemBody" th:href="@{/challenge/abstraction}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/abstraction.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Abstracción</h5>
+                    </div>
+                </div>
+            </a>
+            <a class="itemBody" th:href="@{/challenge/inheritance}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/inheritance.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Herencia</h5>
+                    </div>
+                </div>
+            </a>
+            <a class="itemBody" th:href="@{/challenge/polymorphism}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/polymorphism.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Polimorfismo</h5>
+                    </div>
+                </div>
+            </a>
+
+
+            <a class="itemBody" th:href="@{/challenge/Class}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/class.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Clase</h5>
+                    </div>
+                </div>
+            </a>
+            <a class="itemBody" th:href="@{/challenge/Method}">
+                <div class="card" style="width: 18rem;">
+                    <img th:src="@{/images/method.png}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Métodos</h5>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

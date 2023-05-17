@@ -4,12 +4,12 @@ import com.innovasoft.PO2Academy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
-import org.springframework.security.web.savedrequest.NullRequestCache;
 
 @Configuration
 @EnableWebSecurity
@@ -22,16 +22,21 @@ public class WebSecurity {
         HttpSessionRequestCache requestCache = new HttpSessionRequestCache();
         requestCache.setMatchingRequestParameterName(null);
         return http
+                .csrf().disable()
                 .authorizeHttpRequests()
+                .requestMatchers(HttpMethod.POST,"/grade/**")
+                .permitAll()
                 .requestMatchers("/static/**", "/css/**", "/images/**", "/js/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
+                .httpBasic()
+                .and()
                 .formLogin()
                 .loginProcessingUrl("/singin")
                 .loginPage("/login")
-                .defaultSuccessUrl("/home")
+                .defaultSuccessUrl("/home",true)
                 .usernameParameter("username")
                 .passwordParameter("password")
                 .permitAll()
@@ -44,8 +49,6 @@ public class WebSecurity {
                 .build();
 
     }
-
-    @SuppressWarnings("deprecation")
     @Bean
     public NoOpPasswordEncoder passwordEncoder() {
         return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();

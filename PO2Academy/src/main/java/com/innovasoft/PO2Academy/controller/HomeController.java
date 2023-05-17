@@ -22,4 +22,6 @@ public class HomeController {
         model.addAttribute("Data",homeService.getUserData(principal.getName()));
         return "home";
     }
+
+
 }

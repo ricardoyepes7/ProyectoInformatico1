@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{mainLayout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Glosario</title>
+    <link th:href="@{/css/challenge.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="bodyContainer">
+        <div class="bodyHeader">
+            <h1>Glosario</h1>
+        </div>
+        <div class="bodyContent">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Término</th>
+                    <th scope="col">Definición</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="palabra, index : ${glosario}">
+                    <td th:text="${palabra.termino}"></td>
+                    <td th:text="${palabra.definicion}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

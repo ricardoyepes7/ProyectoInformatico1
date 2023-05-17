@@ -5,27 +5,27 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
-@Table(name = "users")
+@Table(name = "challenge_results")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-
+public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Long id;
     @Column(name = "username")
     private String username;
-
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "last_name")
-    private String lastName;
-
+    @Column(name = "id_challenge")
+    private Long challengeId;
+    @Column(name = "score")
+    private Integer Score;
+    @Column(name = "date")
+    private LocalDateTime date;
     @Column(name = "level")
     private Integer level;
+
 }

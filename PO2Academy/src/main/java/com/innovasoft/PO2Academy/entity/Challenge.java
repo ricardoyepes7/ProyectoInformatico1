@@ -5,27 +5,22 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
-@Table(name = "users")
+@Table(name = "challenge")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-
+public class Challenge {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "username")
-    private String username;
-
-    @Column(name = "password")
-    private String password;
-
+    @Column(name = "id")
+    private Long id;
     @Column(name = "name")
     private String name;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "level")
-    private Integer level;
+    @Column(name = "description")
+    private String description;
+   /* @OneToMany(mappedBy = "challenge", fetch = FetchType.LAZY)*/
+   // private List<Question> questionList;
 }
