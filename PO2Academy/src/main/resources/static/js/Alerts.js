@@ -16,6 +16,13 @@ Toast.fire({
   iconColor: '#F45B69'
 })
 }
+function error(message){
+Toast.fire({
+  icon: 'error',
+  title: message,
+  iconColor: '#F45B69'
+})
+}
 function logOut(){
 Toast.fire({
   icon: 'success',
@@ -37,10 +44,10 @@ Swal.fire({
   preConfirm: (login) => {
       return fetch('/po2academy/grade')
         .then(response => {
-            console.log(response)
           if (!response.ok) {
-            console.log("entro aqui")
-            throw new Error(response.statusText)
+             return response.text().then(errorData => {
+                     throw new Error(errorData);
+                   });
           }
           return response.json()
         })

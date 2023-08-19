@@ -67,6 +67,9 @@
         </div>
 
     </div>
+    <script th:if="${error!=null}"
+            th:inline="javascript">error(/*[[${error}]]*/)
+    </script>
 </div>
 </body>
 </html>

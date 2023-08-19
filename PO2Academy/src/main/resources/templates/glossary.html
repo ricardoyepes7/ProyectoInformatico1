@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Glosario</title>
-    <link th:href="@{/css/challenge.css}" rel="stylesheet"/>
+    <link th:href="@{/css/challengeEntity.css}" rel="stylesheet"/>
 
 </head>
 <body>
@@ -23,8 +23,8 @@
                 </thead>
                 <tbody>
                 <tr th:each="palabra, index : ${glosario}">
-                    <td th:text="${palabra.termino}"></td>
-                    <td th:text="${palabra.definicion}"></td>
+                    <td th:text="${palabra.word}"></td>
+                    <td th:text="${palabra.definition}"></td>
                 </tr>
                 </tbody>
             </table>
