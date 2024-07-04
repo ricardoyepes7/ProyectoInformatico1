@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout}">
+<head>
+    <title data-page="challenge" th:text="${quiz.description}"></title>
+</head>
+<body>
+<main class="max medium-line responsive" layout:fragment="main-content">
+    <article class="no-elevate round no-padding large page top active">
+        <img class="responsive"
+             th:src="@{/images/banner_2.jpg}">
+        <div class="absolute middle center center-align black-text">
+            <h1 class="l m center-align question" ></h1>
+            <h4 class="s center-align question"></h4>
+        </div>
+    </article>
+    <div class="large-space"></div>
+    <div class="large-space"></div>
+    <section class="responsive page bottom active" id="response-container">
+
+    </section>
+    <!-- isLoading -->
+    <div class="overlay center-align middle-align active" id="backdrop-loader">
+        <progress class="circle large  white-text"></progress>
+    </div>
+    <!-- dialog result -->
+    <div class="overlay blur" id="backdrop-result"></div>
+    <dialog class="small-round center middle" id="dialog-result">
+        <h5 id="dialog-title"></h5>
+        <p class="large-text center-align middle-align" id="dialog-total-questions">Preguntas:</p>
+        <p class="large-text center-align middle-align" id="dialog-score">Puntuación: </p>
+        <a class="responsive" th:href="@{/home}">
+            <button class="small-round responsive">Volver</button>
+        </a>
+    </dialog>
+    <script type="text/javascript" th:src="@{/js/Quiz.js}"></script>
+    <script th:inline="javascript">setQuestions(/*[[${quiz.questionList}]]*/null, /*[[${quiz.description}]]*/)</script>
+</main>
+</body>
+</html>

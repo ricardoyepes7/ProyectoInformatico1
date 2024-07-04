@@ -2,23 +2,23 @@ package com.innovasoft.PO2Academy.domain.usecase;
 
 import com.innovasoft.PO2Academy.domain.api.IResultServicePort;
 import com.innovasoft.PO2Academy.domain.model.Result;
-import com.innovasoft.PO2Academy.domain.spi.IResultPersistencePort;
+import com.innovasoft.PO2Academy.domain.spi.IResultProviderPort;
 
 
 public class ResultUseCase implements IResultServicePort {
-    private final IResultPersistencePort resultPersistencePort;
+    private final IResultProviderPort resultProviderPort;
 
-    public ResultUseCase(IResultPersistencePort resultPersistencePort) {
-        this.resultPersistencePort = resultPersistencePort;
+    public ResultUseCase(IResultProviderPort resultProviderPort) {
+        this.resultProviderPort = resultProviderPort;
     }
 
     @Override
     public void saveResult(Result result) {
-        resultPersistencePort.saveResult(result);
+        resultProviderPort.saveResult(result);
     }
 
     @Override
     public int getMaxChallenge(String username, Long challengeId) {
-        return resultPersistencePort.getMaxChallenge(username, challengeId);
+        return resultProviderPort.getMaxChallenge(username, challengeId);
     }
 }

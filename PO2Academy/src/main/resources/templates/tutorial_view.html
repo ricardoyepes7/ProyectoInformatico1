@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout}">
+<head>
+    <title data-page="tutorial">Tutoriales</title>
+</head>
+<body>
+<main class="responsive" layout:fragment="main-content">
+    <div class="medium-space"></div>
+    <h1 class="l m page top active">Tutoriales</h1>
+    <h3 class="s">Tutoriales</h3>
+    <div class="large-space"></div>
+    <section class="page bottom active">
+        <article>
+            <div th:each="tutorial, index : ${Tutorial}">
+                <details>
+                    <summary th:text="${tutorial.key}">[TUTORIAL]</summary>
+                    <nav class="wrap center-align middle-align">
+                        <article class="no-padding transparent" th:each="url : ${tutorial.value}">
+                            <iframe style=" width: 100%; aspect-ratio: 16/9;" th:src="${url}"
+                                    title="YouTube video player" frameborder="0"
+                                    allow=" autoplay; picture-in-picture; web-share"
+                                    allowfullscreen></iframe>
+                        </article>
+                    </nav>
+                </details>
+                <div class="large-divider"></div>
+            </div>
+        </article>
+    </section>
+</main>
+</body>
+</html>

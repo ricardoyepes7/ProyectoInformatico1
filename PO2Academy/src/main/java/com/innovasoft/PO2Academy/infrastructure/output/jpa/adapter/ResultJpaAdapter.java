@@ -1,13 +1,13 @@
 package com.innovasoft.PO2Academy.infrastructure.output.jpa.adapter;
 
 import com.innovasoft.PO2Academy.domain.model.Result;
-import com.innovasoft.PO2Academy.domain.spi.IResultPersistencePort;
+import com.innovasoft.PO2Academy.domain.spi.IResultProviderPort;
 import com.innovasoft.PO2Academy.infrastructure.output.jpa.mapper.ResultEntityMapper;
 import com.innovasoft.PO2Academy.infrastructure.output.jpa.repository.IResultRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class ResultJpaAdapter implements IResultPersistencePort {
+public class ResultJpaAdapter implements IResultProviderPort {
     private final IResultRepository resultRepository;
     private final ResultEntityMapper resultEntityMapper;
     @Override

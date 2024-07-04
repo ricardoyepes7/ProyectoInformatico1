@@ -1,47 +1,66 @@
 package com.innovasoft.PO2Academy.domain.model;
 
 public class Answer {
-    private Long id;
-    private String optionAnswer;
-    private Long questionId;
-    private boolean isCorrect;
+    private final Long id;
+    private final String optionAnswer;
+    private final Long questionId;
+    private final boolean isCorrect;
 
-    public Answer(Long id, String optionAnswer, Long questionId, boolean isCorrect) {
-        this.id = id;
-        this.optionAnswer = optionAnswer;
-        this.questionId = questionId;
-        this.isCorrect = isCorrect;
+    private Answer(AnswerBuilder answerBuilder) {
+        this.id = answerBuilder.id;
+        this.optionAnswer = answerBuilder.optionAnswer;
+        this.questionId = answerBuilder.questionId;
+        this.isCorrect = answerBuilder.isCorrect;
     }
 
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getOptionAnswer() {
         return optionAnswer;
-    }
-
-    public void setOptionAnswer(String optionAnswer) {
-        this.optionAnswer = optionAnswer;
     }
 
     public Long getQuestionId() {
         return questionId;
     }
 
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
-    }
-
     public boolean isCorrect() {
         return isCorrect;
     }
 
-    public void setCorrect(boolean correct) {
-        isCorrect = correct;
+    public static AnswerBuilder builder() {
+        return new AnswerBuilder();
+    }
+
+    public static class AnswerBuilder {
+        private Long id;
+        private String optionAnswer;
+        private Long questionId;
+        private boolean isCorrect;
+
+        public AnswerBuilder id(Long id) {
+            this.id = id;
+            return this;
+        }
+
+        public AnswerBuilder optionAnswer(String optionAnswer) {
+            this.optionAnswer = optionAnswer;
+            return this;
+        }
+
+        public AnswerBuilder questionId(Long questionId) {
+            this.questionId = questionId;
+            return this;
+        }
+
+        public AnswerBuilder correct(boolean correct) {
+            isCorrect = correct;
+            return this;
+        }
+
+        public Answer build() {
+            return new Answer(this);
+        }
     }
 }

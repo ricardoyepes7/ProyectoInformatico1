@@ -52,8 +52,8 @@ public class ChallengeHandlerImp implements IChallengeHandler {
         return new QuizDto(challenge.getId(), challenge.getDescription(), questionsDto);
     }
 
-    @Transactional
     @Override
+    @Transactional
     public GradeDto grade(List<Long> answerList, String username) {
         Map<Boolean, Long> answer = answerList.stream()
                 .map(answerServicePort::isCorrect)
@@ -62,14 +62,19 @@ public class ChallengeHandlerImp implements IChallengeHandler {
         Double correct = (double) (answer.containsKey(true) ? answer.get(true) : 0);
         Double total = answer.containsKey(false) ? correct + answer.get(false) : correct;
         double score = (correct / total) * 100;
-
-        resultServicePort.saveResult(new Result(null, username, challengeServicePort.getChallengeIdByAnswerId(answerList.get(0)),
-                (int) score, LocalDateTime.now(), userServicePort.getUserByUsername(username).getLevel()));
+        Result result = Result.builder()
+                .username(username)
+                .challengeId(challengeServicePort.getChallengeIdByAnswerId(answerList.get(0)))
+                .score((int) score)
+                .date(LocalDateTime.now())
+                .level(userServicePort.getUserByUsername(username).getLevel())
+                .build();
+        resultServicePort.saveResult(result);
         return new GradeDto(correct.intValue(), total.intValue(), (int) score);
     }
 
-    @Transactional
     @Override
+    @Transactional
     public int levelUp(String username) {
         boolean isCompleted = challengeServicePort.getAllChallenges()
                 .stream()
@@ -81,7 +86,7 @@ public class ChallengeHandlerImp implements IChallengeHandler {
             userServicePort.update(user);
             return user.getLevel() + 1;
         } else {
-            throw new ChallengeRestException("No puedes subir de nivel porque no has completado todos los desafios.", HttpStatus.CONFLICT);
+            throw new ChallengeRestException("No puedes subir de nivel porque no has completado todos los desafíos.", HttpStatus.CONFLICT);
         }
     }
 }

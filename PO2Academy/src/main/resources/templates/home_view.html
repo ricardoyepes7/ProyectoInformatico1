@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout}">
+<head>
+    <title data-page="home">Home</title>
+    <style>
+        .progres-item-card {
+            width: 20rem;
+        }
+         .progres-item-chip {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<main class="max medium-line responsive" layout:fragment="main-content">
+    <article class="no-elevate round no-padding large page top active">
+        <img class="responsive"
+             th:src="@{/images/banner_2.jpg}">
+        <nav class="absolute middle center center-align black-text wrap">
+            <div>
+                <h1 class="l m" th:text="${'Hola, '+Data.name}">Hola, [NOMBRE]</h1>
+                <h3 class="s" th:text="${'Hola, '+Data.name}">Hola, [NOMBRE]</h3>
+                <p th:text="${'Nivel:  '+Data.level}">Nivel: [LEVEL]</p>
+            </div>
+            <div class="max l" style="width: 90rem;"></div>
+            <div class="grid">
+                <div class="l6 m6 s12" th:each="scores : ${Data.scores}">
+                    <article class="l progres-item-card">
+                        <p class="large-text" th:text="${scores.key +' '+ scores.value+'%'}">[ITEM]</p>
+                        <progress class="max cyan-text" th:value="${scores.value}" max="100"></progress>
+                    </article>
+                    <div class="chip s m progres-item-chip">
+                        <span th:text="${scores.key +' '+ scores.value+'%'}">[ITEM]</span>
+                        <progress class="max cyan-textf" th:value="${scores.value}" max="100"></progress>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </article>
+    <div class="large-space"></div>
+    <div class="large-space"></div>
+    <section class="responsive page bottom active">
+        <div class="grid">
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/tutoriales}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/Tutoriales.png}">
+                        <div class="large-padding"><h6>Tutoriales</h6>
+                            <p>¡Aprende con videos, diapositivas y más!</p></div>
+                    </article>
+                </a>
+            </div>
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/glossary}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/Glosario.png}">
+                        <div class="large-padding"><h6>Glosario</h6>
+                            <p>Catálogo ordenado de palabras.</p></div>
+                    </article>
+                </a>
+            </div>
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/challenge}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/Test.png}">
+                        <div class="large-padding"><h6>Empezar Desafío</h6>
+                            <p>¡Inicia o continua con las pruebas mas divertidas!</p></div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
+    <script th:if="${Data.isAllComplete}"
+            th:inline="javascript">congratulations(/*[[${Data.level}]]*/)
+    </script>
+</main>
+</body>
+</html>

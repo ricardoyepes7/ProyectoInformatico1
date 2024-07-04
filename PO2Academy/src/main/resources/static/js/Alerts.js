@@ -23,6 +23,19 @@ Toast.fire({
   iconColor: '#F45B69'
 })
 }
+function bigError(title,message){
+Swal.fire({
+  icon: 'error',
+  title: title,
+  text: message,
+  confirmButtonColor: '#028090',
+  confirmButtonText: 'Volver',
+  allowOutsideClick: false,
+  allowEscapeKey: false,
+}).then((result) => {
+    window.location = "/po2academy/login"
+  })
+}
 function logOut(){
 Toast.fire({
   icon: 'success',

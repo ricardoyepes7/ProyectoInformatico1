@@ -2,34 +2,34 @@ package com.innovasoft.PO2Academy.domain.usecase;
 
 import com.innovasoft.PO2Academy.domain.api.IChallengeServicePort;
 import com.innovasoft.PO2Academy.domain.model.Challenge;
-import com.innovasoft.PO2Academy.domain.spi.IChallengePersistencePort;
+import com.innovasoft.PO2Academy.domain.spi.IChallengeProviderPort;
 
 import java.util.List;
 
 public class ChallengeUseCase implements IChallengeServicePort {
-    private final IChallengePersistencePort challengePersistencePort;
+    private final IChallengeProviderPort challengeProviderPort;
 
-    public ChallengeUseCase(IChallengePersistencePort challengePersistencePort) {
-        this.challengePersistencePort = challengePersistencePort;
+    public ChallengeUseCase(IChallengeProviderPort challengeProviderPort) {
+        this.challengeProviderPort = challengeProviderPort;
     }
 
     @Override
     public Challenge getChallengeByName(String challengeName) {
-        return challengePersistencePort.getChallengeByName(challengeName);
+        return challengeProviderPort.getChallengeByName(challengeName);
     }
 
     @Override
     public List<Challenge> getAllChallenges() {
-        return challengePersistencePort.getAllChallenges();
+        return challengeProviderPort.getAllChallenges();
     }
 
     @Override
     public Challenge getChallengeById(Long id) {
-        return challengePersistencePort.getChallengeById(id);
+        return challengeProviderPort.getChallengeById(id);
     }
 
     @Override
     public Long getChallengeIdByAnswerId(Long answerId) {
-        return challengePersistencePort.getChallengeIdByAnswerId(answerId);
+        return challengeProviderPort.getChallengeIdByAnswerId(answerId);
     }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout}">
+<head>
+    <title data-page="glossary">Title</title>
+</head>
+<body>
+<main class="responsive" layout:fragment="main-content">
+    <div class="medium-space"></div>
+    <h1 class="l m page top active">Glosario</h1>
+    <h3 class="s">Glosario</h3>
+    <div class="large-space"></div>
+    <section class="page bottom active">
+        <table class="large-space">
+            <thead>
+            <tr>
+                <th class="min">Término</th>
+                <th>Definición</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="word, index : ${glossary}">
+                <td class="min" th:text="${word.word}"></td>
+                <td th:text="${word.definition}"></td>
+            </tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>

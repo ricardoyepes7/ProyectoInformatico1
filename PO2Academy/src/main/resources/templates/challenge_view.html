@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{main_layout}">
+<head>
+    <title data-page="challenge">Desafíos</title>
+</head>
+<body>
+<main class="responsive" layout:fragment="main-content">
+    <div class="medium-space"></div>
+    <h1 class="l m page top active">Desafíos</h1>
+    <h3 class="s">Desafíos</h3>
+    <div class="large-space"></div>
+    <section class="page bottom active">
+        <div class="grid large-space">
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/challenge/encapsulation}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/encapsulation.png}">
+                        <div class="large-padding"><h6>Encapsulación</h6></div>
+                    </article>
+                </a>
+            </div>
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/challenge/abstraction}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/abstraction.png}">
+                        <div class="large-padding"><h6>Abstracción</h6></div>
+                    </article>
+                </a>
+            </div>
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/challenge/inheritance}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/inheritance.png}">
+                        <div class="large-padding"><h6>Herencia</h6></div>
+                    </article>
+                </a>
+            </div>
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/challenge/polymorphism}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/polymorphism.png}">
+                        <div class="large-padding"><h6>Polimorfismo</h6></div>
+                    </article>
+                </a>
+            </div>
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/challenge/Class}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/class.png}">
+                        <div class="large-padding"><h6>Clase</h6></div>
+                    </article>
+                </a>
+            </div>
+            <div class="s12 m6 l4">
+                <a class="wave round wrap" th:href="@{/challenge/Method}">
+                    <article class="round no-elevate no-padding">
+                        <img class="responsive" th:src="@{/images/method.png}">
+                        <div class="large-padding"><h6>Métodos</h6></div>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

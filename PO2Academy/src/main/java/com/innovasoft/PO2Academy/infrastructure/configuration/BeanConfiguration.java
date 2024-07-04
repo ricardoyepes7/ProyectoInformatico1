@@ -12,77 +12,86 @@ import org.springframework.stereotype.Component;
 @Component
 public class BeanConfiguration {
     @Bean
-    public IUserServicePort userServicePort(IUserPersistencePort userPersistencePort) {
-        return new UserUseCase(userPersistencePort);
+    public IUserServicePort userServicePort(IUserProviderPort userProviderPort) {
+        return new UserUseCase(userProviderPort);
     }
 
     @Bean
-    public IUserPersistencePort userPersistencePort(IUserRepository userRepository, UserEntityMapper userEntityMapper) {
+    public IUserProviderPort userProviderPort(IUserRepository userRepository, UserEntityMapper userEntityMapper) {
         return new UserJpaAdapter(userRepository, userEntityMapper);
     }
 
     @Bean
-    public IResultServicePort resultServicePort(IResultPersistencePort resultPersistencePort) {
-        return new ResultUseCase(resultPersistencePort);
+    public IResultServicePort resultServicePort(IResultProviderPort resultProviderPort) {
+        return new ResultUseCase(resultProviderPort);
     }
 
     @Bean
-    public IResultPersistencePort resultPersistencePort(IResultRepository resultRepository, ResultEntityMapper resultEntityMapper) {
+    public IResultProviderPort resultProviderPort(IResultRepository resultRepository, ResultEntityMapper resultEntityMapper) {
         return new ResultJpaAdapter(resultRepository, resultEntityMapper);
     }
 
     @Bean
-    public IChallengeServicePort challengeServicePort(IChallengePersistencePort challengePersistencePort) {
-        return new ChallengeUseCase(challengePersistencePort);
+    public IChallengeServicePort challengeServicePort(IChallengeProviderPort challengeProviderPort) {
+        return new ChallengeUseCase(challengeProviderPort);
     }
 
     @Bean
-    public IChallengePersistencePort challengePersistencePort(IChallengeRepository challengeRepository,
-                                                              ChallengeEntityMapper challengeEntityMapper) {
+    public IChallengeProviderPort challengeProviderPort(IChallengeRepository challengeRepository,
+                                                           ChallengeEntityMapper challengeEntityMapper) {
         return new ChallengeJpaAdapter(challengeRepository, challengeEntityMapper);
     }
 
     @Bean
-    public ITutorialServicePort tutorialServicePort(ITutorialPersistencePort tutorialPersistencePort) {
-        return new TutorialUseCase(tutorialPersistencePort);
+    public ITutorialServicePort tutorialServicePort(ITutorialProviderPort tutorialProviderPort) {
+        return new TutorialUseCase(tutorialProviderPort);
     }
 
     @Bean
-    public ITutorialPersistencePort tutorialPersistencePort(ITutorialRepository tutorialRepository,
-                                                            TutorialEntityMapper tutorialEntityMapper) {
+    public ITutorialProviderPort tutorialProviderPort(ITutorialRepository tutorialRepository,
+                                                         TutorialEntityMapper tutorialEntityMapper) {
         return new TutorialJpaAdapter(tutorialRepository, tutorialEntityMapper);
     }
 
     @Bean
-    public IGlossaryServicePort glossaryServicePort(IGlossaryPersistencePort glossaryPersistencePort) {
-        return new GlossaryUseCase(glossaryPersistencePort);
+    public IGlossaryServicePort glossaryServicePort(IGlossaryProviderPort glossaryProviderPort) {
+        return new GlossaryUseCase(glossaryProviderPort);
     }
 
     @Bean
-    public IGlossaryPersistencePort glossaryPersistencePort(IGlossaryRepository glossaryRepository,
-                                                            GlossaryEntityMapper glossaryEntityMapper) {
+    public IGlossaryProviderPort glossaryProviderPort(IGlossaryRepository glossaryRepository,
+                                                         GlossaryEntityMapper glossaryEntityMapper) {
         return new GlossaryJpaAdapter(glossaryRepository, glossaryEntityMapper);
     }
 
     @Bean
-    public IQuestionServicePort questionServicePort(IQuestionPersistencePort questionPersistencePort) {
-        return new QuestionUseCase(questionPersistencePort);
+    public IQuestionServicePort questionServicePort(IQuestionProviderPort questionProviderPort) {
+        return new QuestionUseCase(questionProviderPort);
     }
 
     @Bean
-    public IQuestionPersistencePort questionPersistencePort(IQuestionRepository questionRepository,
-                                                            QuestionEntityMapper questionEntityMapper) {
+    public IQuestionProviderPort questionProviderPort(IQuestionRepository questionRepository,
+                                                         QuestionEntityMapper questionEntityMapper) {
         return new QuestionJpaAdapter(questionRepository, questionEntityMapper);
     }
 
     @Bean
-    public IAnswerServicePort answerServicePort(IAnswerPersistencePort answerPersistencePort) {
-        return new AnswerUseCase(answerPersistencePort);
+    public IAnswerServicePort answerServicePort(IAnswerProviderPort answerProviderPort) {
+        return new AnswerUseCase(answerProviderPort);
     }
 
     @Bean
-    public IAnswerPersistencePort answerPersistencePort(IAnswerRepository answerRepository,
-                                                        AnswerEntityMapper answerEntityMapper) {
+    public IAnswerProviderPort answerProviderPort(IAnswerRepository answerRepository,
+                                                     AnswerEntityMapper answerEntityMapper) {
         return new AnswerJpaAdapter(answerRepository, answerEntityMapper);
+    }
+    @Bean
+    public IDataPolicesServicePort dataPolicesServicePort(IDataPolicesProviderPort dataPolicesProviderPort){
+        return new DataPolicesUseCase(dataPolicesProviderPort);
+    }
+    @Bean
+    public IDataPolicesProviderPort dataPolicesProviderPort(IDataPolicesRepository dataPolicesRepository,
+                                                               DataPolicesEntityMapper dataPolicesEntityMapper){
+        return new DataPolicesJpaAdapter(dataPolicesRepository,dataPolicesEntityMapper);
     }
 }

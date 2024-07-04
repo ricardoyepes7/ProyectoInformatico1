@@ -6,7 +6,7 @@ import com.innovasoft.PO2Academy.domain.api.IChallengeServicePort;
 import com.innovasoft.PO2Academy.domain.api.IResultServicePort;
 import com.innovasoft.PO2Academy.domain.model.Challenge;
 import com.innovasoft.PO2Academy.domain.model.User;
-import com.innovasoft.PO2Academy.domain.spi.IUserPersistencePort;
+import com.innovasoft.PO2Academy.domain.spi.IUserProviderPort;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 public class HomeHandlerImp implements IHomeHandler {
-    private final IUserPersistencePort userPersistencePort;
+    private final IUserProviderPort userPersistencePort;
     private final IResultServicePort resultServicePort;
     private final IChallengeServicePort challengeServicePort;
 

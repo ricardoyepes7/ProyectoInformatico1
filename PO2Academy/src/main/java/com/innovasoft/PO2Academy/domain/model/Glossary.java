@@ -2,8 +2,8 @@ package com.innovasoft.PO2Academy.domain.model;
 
 
 public class Glossary {
-    private String word ;
-    private String definition;
+    private final String word ;
+    private final String definition;
 
     public Glossary(String word, String definition) {
         this.word = word;
@@ -14,15 +14,8 @@ public class Glossary {
         return word;
     }
 
-    public void setWord(String word) {
-        this.word = word;
-    }
-
     public String getDefinition() {
         return definition;
     }
 
-    public void setDefinition(String definition) {
-        this.definition = definition;
-    }
 }

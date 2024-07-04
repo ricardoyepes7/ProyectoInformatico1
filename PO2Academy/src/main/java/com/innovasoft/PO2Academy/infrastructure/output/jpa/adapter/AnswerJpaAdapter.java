@@ -1,7 +1,7 @@
 package com.innovasoft.PO2Academy.infrastructure.output.jpa.adapter;
 
 import com.innovasoft.PO2Academy.domain.model.Answer;
-import com.innovasoft.PO2Academy.domain.spi.IAnswerPersistencePort;
+import com.innovasoft.PO2Academy.domain.spi.IAnswerProviderPort;
 import com.innovasoft.PO2Academy.infrastructure.output.jpa.mapper.AnswerEntityMapper;
 import com.innovasoft.PO2Academy.infrastructure.output.jpa.repository.IAnswerRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class AnswerJpaAdapter implements IAnswerPersistencePort {
+public class AnswerJpaAdapter implements IAnswerProviderPort {
     private final IAnswerRepository answerRepository;
     private final AnswerEntityMapper answerEntityMapper;
     @Override

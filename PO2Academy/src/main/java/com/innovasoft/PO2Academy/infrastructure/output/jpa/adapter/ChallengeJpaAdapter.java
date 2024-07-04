@@ -1,7 +1,7 @@
 package com.innovasoft.PO2Academy.infrastructure.output.jpa.adapter;
 
 import com.innovasoft.PO2Academy.domain.model.Challenge;
-import com.innovasoft.PO2Academy.domain.spi.IChallengePersistencePort;
+import com.innovasoft.PO2Academy.domain.spi.IChallengeProviderPort;
 import com.innovasoft.PO2Academy.application.exception.ChallengeException;
 import com.innovasoft.PO2Academy.infrastructure.exception.JpaException;
 import com.innovasoft.PO2Academy.infrastructure.output.jpa.mapper.ChallengeEntityMapper;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-public class ChallengeJpaAdapter implements IChallengePersistencePort {
+public class ChallengeJpaAdapter implements IChallengeProviderPort {
     private final IChallengeRepository challengeRepository;
     private final ChallengeEntityMapper challengeEntityMapper;
 

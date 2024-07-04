@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="head-title">Title</title>
+    <link th:href="@{/images/favicon.png}" type="image/icon type" rel="icon">
+    <!--BeerCSS-->
+    <link href="https://cdn.jsdelivr.net/npm/beercss@3.5.6/dist/cdn/beer.min.css" rel="stylesheet">
+
+    <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.5.6/dist/cdn/beer.min.js"></script>
+
+    <script type="module"
+            src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.0/dist/cdn/material-dynamic-colors.min.js"></script>
+    <!--Social media icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+          integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!--SweetAlert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script type="text/javascript" th:src="@{/js/Alerts.js}"></script>
+    <script type="text/javascript" th:src="@{/js/DataPolicies.js}"></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+</head>
+<body>
+<nav class="medium-elevate top horizontal-padding">
+    <button class="circle large transparent m l small-margin" data-ui="#dialog-expanded">
+        <i>menu</i>
+    </button>
+    <img th:src="@{/images/LogoApp.png}" alt="Logo" style="
+    width: 90px;
+    aspect-ratio: 90/47;">
+    <div class="max"></div>
+    <form th:action="@{/logout}" method="post">
+        <button class="circle transparent">
+            <i>logout</i>
+            <div class="tooltip bottom">Cerrar sesión</div>
+        </button>
+    </form>
+</nav>
+<nav class="bottom s">
+    <a class="" id="nav-button-home" th:href="@{/home}">
+        <i>home</i>
+        <div>Home</div>
+    </a>
+    <a class="" id="nav-button-challenge" th:href="@{/challenge}">
+        <i>stadia_controller</i>
+        <div>Desafío</div>
+    </a>
+    <a class="" id="nav-button-tutorial" th:href="@{/tutoriales}">
+        <i>school</i>
+        <div>Tutoriales</div>
+    </a>
+    <a class="" id="nav-button-glossary" th:href="@{/glossary}">
+        <i>book_3</i>
+        <div>Glosario</div>
+    </a>
+</nav>
+<dialog class="left small" id="dialog-expanded">
+    <header class="fixed">
+        <nav>
+            <button class="circle large transparent" data-ui="#dialog-expanded">
+                <i>menu</i>
+            </button>
+            <img th:src="@{/images/LogoApp.png}" alt="Logo" style="
+    width: 90px;
+    aspect-ratio: 90/47;">
+        </nav>
+    </header>
+    <a class="row round" data-ui="#dialog-expanded" th:href="@{/home}">
+        <i>home</i>
+        <div>Home</div>
+    </a>
+    <a class="row round" data-ui="#dialog-expanded" th:href="@{/challenge}">
+        <i>stadia_controller</i>
+        <div>Empezar desafío</div>
+    </a>
+    <a class="row round" data-ui="#dialog-expanded" th:href="@{/tutoriales}">
+        <i>school</i>
+        <div>Tutoriales</div>
+    </a>
+    <a class="row round" data-ui="#dialog-expanded" th:href="@{/glossary}">
+        <i>book_3</i>
+        <div>Glosario</div>
+    </a>
+</dialog>
+<!--Main Content -->
+<main layout:fragment="main-content">
+[MAIN CONTENT HERE]
+</main>
+<section class="responsive small-padding">
+    <div class="large-space"></div>
+    <div class="large-space"></div>
+    <div class="divider"></div>
+    <div class="grid">
+        <div class="s12 l4">
+            <div class="s4">
+                <p class="bold">Integrantes</p>
+                <p><a class="inverse-link">Juan Martin Vasquez</a></p>
+                <p><a class="inverse-link">Ricardo Páez Yepes</a></p>
+                <p><a class="inverse-link">Victor Manuel Gomez Zarama</a></p>
+                <p><a class="inverse-link">Andrés José Urbano</a></p>
+                <p><a class="inverse-link">Felipe Chaves Romero</a></p>
+                <p><a class="inverse-link">Jharling Jhoan Rodriguez</a></p>
+            </div>
+        </div>
+        <div class="s12 l4">
+            <div class="s4">
+                <p class="bold">Acerca de</p>
+                <div class="tiny-line">
+                    <p style="text-align: justify;">Po2Academi es un proyecto desarrollado en el marco de la asignatura
+                        "Proyecto Informático 1" en la Universidad Autónoma de Occidente, ubicada en Cali, Colombia.
+                        Este innovador proyecto surge con el objetivo de ofrecer cursos especializados para los
+                        estudiantes de la carrera de Ingeniería Informática, centrados específicamente en la
+                        programación orientada a objetos (POO).</p>
+                </div>
+            </div>
+        </div>
+        <div class="s12 l4">
+            <div class="s4">
+                <p class="bold">Desarrollado por:</p>
+                <img th:src="@{/images/Logo_InnovaSoft.png}" alt="Logo" style="width: 75%; aspect-ratio: 93/32;"
+                     class="d-inline-block align-text-top">
+            </div>
+        </div>
+    </div>
+    <div class="large-space"></div>
+    <div class="center-align middle-align">
+        <p>© 2023 Copyright:</p>
+        &nbsp;
+        <p><a class="inverse-link" th:href="@{/home}">PO2ACADEMY.COM</a></p>
+    </div>
+</section>
+<!--Modal Data Policies-->
+<script th:if="${session.DataPolicies!=true}"
+        th:inline="javascript">dataPolicies()
+</script>
+<!--Error Handler-->
+<script th:if="${bigError!=null}"
+        th:inline="javascript">bigError(/*[[${bigError.title}]]*/,/*[[${bigError.message}]]*/)
+</script>
+<script th:if="${error!=null}"
+        th:inline="javascript">error(/*[[${error}]]*/)
+</script>
+<script type="text/javascript" th:src="@{/js/MainLayout.js}"></script>
+</body>
+</html>

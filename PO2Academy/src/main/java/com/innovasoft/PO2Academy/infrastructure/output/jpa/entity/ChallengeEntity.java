@@ -1,15 +1,12 @@
 package com.innovasoft.PO2Academy.infrastructure.output.jpa.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+
+@Data
 @Entity
 @Table(name = "challenge")
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class ChallengeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

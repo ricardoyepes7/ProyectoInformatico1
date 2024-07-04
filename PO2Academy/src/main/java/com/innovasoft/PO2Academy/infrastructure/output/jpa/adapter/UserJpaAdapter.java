@@ -1,14 +1,14 @@
 package com.innovasoft.PO2Academy.infrastructure.output.jpa.adapter;
 
 import com.innovasoft.PO2Academy.domain.model.User;
-import com.innovasoft.PO2Academy.domain.spi.IUserPersistencePort;
+import com.innovasoft.PO2Academy.domain.spi.IUserProviderPort;
 import com.innovasoft.PO2Academy.infrastructure.exception.JpaException;
 import com.innovasoft.PO2Academy.infrastructure.output.jpa.mapper.UserEntityMapper;
 import com.innovasoft.PO2Academy.infrastructure.output.jpa.repository.IUserRepository;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class UserJpaAdapter implements IUserPersistencePort {
+public class UserJpaAdapter implements IUserProviderPort {
     private final IUserRepository userRepository;
     private final UserEntityMapper userEntityMapper;
     @Override
